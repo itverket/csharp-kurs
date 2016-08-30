@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using System.Linq;
 
-namespace CSharpKurs.Test
+namespace CSharpKurs.Tests
 {
     [TestFixture]
     public class ManipulateCollectionsTests
@@ -40,6 +40,39 @@ namespace CSharpKurs.Test
         }
 
 
+        [Test]
+        public void Should_get_person_older_than20_storted_by_height()
+        {
+            var filteredPersons = _task.PersonsOlderThan20SortedByHeight(TestData.TestPersons);
 
+            Assert.That(filteredPersons[0].Name, Is.EqualTo("Ole"));
+            Assert.That(filteredPersons[1].Name, Is.EqualTo("Kato"));
+        }
+
+
+        [Test]
+        public void Should_correlate_person_with_dog_on_dogId()
+        {
+            var personsWithDogNames = _task.PersonsWithDogs(TestData.TestPersons, TestData.TestDogs);
+
+            Assert.That(personsWithDogNames[0].Name, Is.EqualTo("Anders"));
+            Assert.That(personsWithDogNames[0].DogName, Is.EqualTo("Alex"));
+
+            Assert.That(personsWithDogNames[1].Name, Is.EqualTo("Kato"));
+            Assert.That(personsWithDogNames[1].DogName, Is.EqualTo("Bota"));
+        }
+
+        [Test]
+        public void Should_add_one_to_each_int()
+        {
+            var listOfInts = new List<int> {1, 2, 3, 4};
+
+            var result = _task.Add1TooAll(listOfInts);
+
+            Assert.That(result[0], Is.EqualTo(2));
+            Assert.That(result[1], Is.EqualTo(3));
+            Assert.That(result[2], Is.EqualTo(4));
+            Assert.That(result[3], Is.EqualTo(5));
+        }
     }
 }
