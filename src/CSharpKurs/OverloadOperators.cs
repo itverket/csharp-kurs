@@ -1,11 +1,5 @@
 ﻿namespace CSharpKurs
 {
-    public class OverloadOperators
-    {
-        
-         
-    }
-
 
     /*
     Implement an addition operator +, which adds to planks. Two planks are
@@ -25,4 +19,5 @@
         //    return new Plank(plank1.Length + plank2.Length);
         //}
     }
+
 }

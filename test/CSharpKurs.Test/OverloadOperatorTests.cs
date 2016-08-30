@@ -22,9 +22,6 @@ namespace CSharpKurs.Tests
             {
                 Assert.Fail();
             }
-
-
-
         }
     }
 }
