@@ -34,11 +34,43 @@ namespace CSharpKurs.Tests
         public void OptionalStringParameter_should_use_both_parameters()
         {
             var optionalParameters = new OptionalParameters(1337);
-            var greeting = optionalParameters.OptionalStringParameter("Ole", "Olsen");
-            Assert.AreEqual("Hello Ole Olsen", greeting);
+            var greeting = optionalParameters.OptionalStringParameter("Per", "Person");
+            Assert.AreEqual("Hello Per Person", greeting);
         }
 
+        [Test]
+        public void OptionalStringParameter_should_work_with_one_parameter()
+        {
+            var optionalParameters = new OptionalParameters(1337);
+            var method = optionalParameters.GetType().GetMethod("OptionalStringParameter");
+            var result = method.Invoke(optionalParameters, new object[] { "Ole", Type.Missing });
+            Assert.AreEqual("Hello Ole Olsen", result);
+        }
 
+        [Test]
+        public void CanFirstParameterBeOptional_should_use_both_parameters()
+        {
+            var optionalParameters = new OptionalParameters(1337);
+            var greeting = optionalParameters.CanFirstParameterBeOptional("Per", "Person");
+            Assert.AreEqual("Hello Per Person", greeting);
+        }
 
+        [Test]
+        public void CanFirstParameterBeOptional_should_work_with_one_parameter()
+        {
+            var optionalParameters = new OptionalParameters(1337);
+            var method = optionalParameters.GetType().GetMethod("CanFirstParameterBeOptional");
+            var result = method.Invoke(optionalParameters, new object[] { "Per", Type.Missing });
+            Assert.AreEqual("Hello Per Olsen", result);
+        }
+
+        [Test]
+        public void CanFirstParameterBeOptional_should_work_with_no_parameters()
+        {
+            var optionalParameters = new OptionalParameters(1337);
+            var method = optionalParameters.GetType().GetMethod("CanFirstParameterBeOptional");
+            var result = method.Invoke(optionalParameters, new object[] { Type.Missing, Type.Missing });
+            Assert.AreEqual("Hello Ole Olsen", result);
+        }
     }
 }
