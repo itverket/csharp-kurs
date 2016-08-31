@@ -6,31 +6,36 @@ using System.Threading.Tasks;
 namespace CSharpKurs
 {
     /*
-    Alter the Line and Circle classes so that it returns:  "Line,Circle"
+    By altering _only_ Line and Circle, make the SumOfSizes return 12.
+    !Tip: Add methods
     */
-    public class DrawingObject
+
+    public class OverloadShapes
     {
-        public virtual string Draw()
+        public List<Shape> Shapes = new List<Shape> {new Shape(), new Circle(), new Line()};
+
+        public int SumOfSize()
         {
-            return "Empty";
+            return Shapes.Sum(s => s.Size);
         }
+
+    }
+    public class Shape
+    {
+        public virtual int Size => 0;
     }
 
-    public class Line : DrawingObject
+    public class Line : Shape
     {
-        public override string Draw()
-        {
-            return "Line";
-        }
+        int length = 2;
+
+        public override int Size => length;
     }
 
-    public class Circle : DrawingObject
+    public class Circle : Shape
     {
-        public override string Draw()
-        {
-            return "Circle";
-        }
-
+        int radius = 5;
+        public override int Size => radius*2;
     }
 
 
