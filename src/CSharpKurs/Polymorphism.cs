@@ -7,7 +7,7 @@ namespace CSharpKurs
 {
     /*
     By altering _only_ Line and Circle, make the SumOfSizes return 12.
-    !Tip: Add methods
+    !Tip: Add method overloads
     */
 
     public class OverloadShapes
