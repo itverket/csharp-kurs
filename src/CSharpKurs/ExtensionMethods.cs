@@ -19,6 +19,20 @@ namespace CSharpKurs
         }
 
 
+        /*
+        Using the extension method you just created, implement the following method.
+        It should return the total word count for all string in the list argument.
+        E.g. the list {"Keep It Simply Silly", "Sorry mama", "Anders"} 
+        should return 7.
+        !Tips: use linq method sum together with your extenstion method 
+         */
+
+        public static int CountWordsOfMultipleStrings(List<string> listOfStrings)
+        {
+            return listOfStrings.Sum(i => i.WordCount());
+        }
+
+
 
         /*
         Make and extension to list of ints (i.e. List<int>) called AddToAllIntInList, 

@@ -45,5 +45,14 @@ namespace CSharpKurs.Tests
         }
 
 
+        [Test]
+        public void Should_count_words_of_all_strings_in_list()
+        {
+            var listOfStrings = new List<string> {"Keep It Simply Silly", "Sorry mama", "Anders"};
+            var result = ExtensionMethods.CountWordsOfMultipleStrings(listOfStrings);
+            Assert.That(result, Is.EqualTo(7));
+
+        }
+
     }
 }
