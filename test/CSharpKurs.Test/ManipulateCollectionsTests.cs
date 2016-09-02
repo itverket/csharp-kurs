@@ -9,6 +9,7 @@ namespace CSharpKurs.Tests
     {
 
         private readonly ManipulateCollections _task = new ManipulateCollections();
+        private readonly ManipulateCollectionsAdvanced _task2 = new ManipulateCollectionsAdvanced();
 
 
         [Test]
@@ -43,7 +44,7 @@ namespace CSharpKurs.Tests
         [Test]
         public void Should_get_person_older_than20_storted_by_height()
         {
-            var filteredPersons = _task.PersonsOlderThan20SortedByHeight(TestData.TestPersons);
+            var filteredPersons = _task2.PersonsOlderThan20SortedByHeight(TestData.TestPersons);
 
             Assert.That(filteredPersons[0].Name, Is.EqualTo("Ole"));
             Assert.That(filteredPersons[1].Name, Is.EqualTo("Kato"));
@@ -53,7 +54,7 @@ namespace CSharpKurs.Tests
         [Test]
         public void Should_correlate_person_with_dog_on_dogId()
         {
-            var personsWithDogNames = _task.PersonsWithDogs(TestData.TestPersons, TestData.TestDogs);
+            var personsWithDogNames = _task2.PersonsWithDogs(TestData.TestPersons, TestData.TestDogs);
 
             Assert.That(personsWithDogNames[0].Name, Is.EqualTo("Anders"));
             Assert.That(personsWithDogNames[0].DogName, Is.EqualTo("Alex"));
@@ -67,7 +68,7 @@ namespace CSharpKurs.Tests
         {
             var listOfInts = new List<int> {1, 2, 3, 4};
 
-            var result = _task.Add1TooAll(listOfInts);
+            var result = _task2.Add1TooAll(listOfInts);
 
             Assert.That(result[0], Is.EqualTo(2));
             Assert.That(result[1], Is.EqualTo(3));
