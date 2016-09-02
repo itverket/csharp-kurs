@@ -9,12 +9,18 @@ namespace CSharpKurs.Tests
         private FunWithGenerics _myVeryOwnList = new FunWithGenerics();
 
         [Test]
-        public void MyVeryOwnListSouldTakeGenericParameter()
+        public void MyVeryOwnListShouldTakeGenericParameter()
         {
-            var myVeryOwnList = new MyVeryOwnList<int>();
+            var myVeryOwnList = new MyVeryOwnListOfGenericType<int>();
             var genericTypeArguments = myVeryOwnList.GetType().GenericTypeArguments.Length;
 
             Assert.AreEqual(1, genericTypeArguments);
+        }
+
+        [Test]
+        public void MyVeryOwnList2ShouldHaveGenericArray()
+        {
+            var myVeryOwnList2 = new MyVeryOwnListWithGenericArray<int>();
         }
     }
 }
