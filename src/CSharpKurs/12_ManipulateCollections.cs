@@ -6,6 +6,9 @@ using System.Reflection;
 
 namespace CSharpKurs
 {
+    /*
+    Try to solve the following tasks in one line, using linq.
+     */
     public class ManipulateCollections
     {
         /*
@@ -35,6 +38,16 @@ namespace CSharpKurs
         public List<string> OrderByLengthOfStrings(IEnumerable<string> listOfStrings)
         {
             return listOfStrings.OrderBy(x => x.Length).ToList();
+        }
+
+        /*
+        Given a list of integers {1, 2, 3, 4, 5, 6, 7, 8}
+        return the average of all the even numbers.
+        In this case 5.
+        */
+        public double GetAverageOfAllEvenNumbers(IEnumerable<int> listOfInt)
+        {
+            return listOfInt.Where(i => i%2 == 0).Average();
         }
 
     }

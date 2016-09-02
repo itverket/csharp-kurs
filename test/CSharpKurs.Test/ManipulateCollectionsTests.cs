@@ -40,6 +40,12 @@ namespace CSharpKurs.Tests
             Assert.AreEqual(result[2], "Anders");
         }
 
+        [Test]
+        public void Should_return_avrage_of_even_numbers()
+        {
+            var listOfDigits = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+            Assert.That(_task.GetAverageOfAllEvenNumbers(listOfDigits), Is.EqualTo(6));
+        }
 
         [Test]
         public void Should_get_person_older_than20_storted_by_height()
