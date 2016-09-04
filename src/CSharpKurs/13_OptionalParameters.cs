@@ -8,7 +8,7 @@
          *  Make the parameter number optional, 
          *  the default value should be 0
          */
-        public OptionalParameters(int number)
+        public OptionalParameters(int number = 0)
         {
             _myNumber = number;
         }
@@ -17,7 +17,7 @@
          * Make the lastName parameter optional, 
          * with "Olsen" as the default value
          */
-        public string OptionalStringParameter(string firstName, string lastName)
+        public string OptionalStringParameter(string firstName, string lastName = "Olsen")
         {
             return $"Hello {firstName} {lastName}";
         }
@@ -26,7 +26,7 @@
          * Try to make the first parameter optional.
          * The default value for the firstName parameter should be "Ole"          
          */
-        public string CanFirstParameterBeOptional(string firstName, string lastName)
+        public string CanFirstParameterBeOptional(string firstName = "Ole", string lastName = "Olsen")
         {
             return $"Hello {firstName} {lastName}";
         }

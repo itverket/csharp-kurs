@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,7 +13,10 @@ namespace CSharpKurs
          */
         public IEnumerator<int> ReturnNumbersFromZeroToNineEnumerator()
         {
-            return null;
+            for (var i = 0; i < 10; i++)
+            {
+                yield return i;
+            }
         }
 
         /*
@@ -21,7 +25,10 @@ namespace CSharpKurs
         */
         public IEnumerable<int> ReturnNumbersFromZeroToNineEnumerable()
         {
-            return null;
+            for (var i = 0; i < 10; i++)
+            {
+                yield return i;
+            }
         }
 
         /*
@@ -34,7 +41,15 @@ namespace CSharpKurs
 
         public IEnumerable<string> ReturnAllElements(IEnumerator<string> enumerator, IEnumerable<string> enumerable)
         {
-            return Enumerable.Empty<string>();
+            while (enumerator.MoveNext())
+            {
+                yield return enumerator.Current;
+            }
+
+            foreach (var item in enumerable)
+            {
+                yield return item;
+            }
         }
 
         /*
@@ -42,16 +57,27 @@ namespace CSharpKurs
          */ 
         public class DaysOfTheWeek : IEnumerable<string>
         {
-            string[] days = { "Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat" };          
+            string[] days = { "Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat" };
+            int position = -1;
+
 
             public IEnumerator<string> GetEnumerator()
             {
-                return null;
+                return days.AsEnumerable().GetEnumerator();
             }
+
+            public void Reset()
+            { position = 0; }
 
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return GetEnumerator();
+
+            }
+
+            public object Current
+            {
+                get { return days[position]; }
             }
         }
 
@@ -61,7 +87,7 @@ namespace CSharpKurs
          */
         public IEnumerable<string> GetDaysUntilThursday(DaysOfTheWeek days)
         {
-            return Enumerable.Empty<string>();
+            return days.TakeWhile(day => day != "Thr" && day != "Fri" && day != "Sat");
         }
 
         /*
@@ -70,7 +96,9 @@ namespace CSharpKurs
          */ 
         public IEnumerable<decimal> AddOneItem(IEnumerable<decimal> numbers)
         {
-            return numbers;
+            var list = numbers.ToList();
+            list.Add(1);
+            return list;
         }
 
     }
