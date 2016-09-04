@@ -21,23 +21,22 @@
         }
 
         /* 
-         * Now add an array of the generic type parameter to the class. We will use this array
+         * Now add property that is an array of the generic type parameter called 'list' to the class. We will use this array
          * to hold the elements of our list
          */
          //TODO: HOW TO TEST THIS LÅL
         public class MyVeryOwnListWithGenericArray<T>
         {
-            T[] list;
+            public T[] list { get; set; }
         }
 
         /* 
          * Now add a method Add that takes a paramater of type T, adds it at the end of the array of T, and returns the new array.
          * HINT: You will need a temporary variable to hold your existing array.
          */
-        //TODO: HOW TO TEST THIS LÅL
         public class MyVeryOwnListWithGenericAddMethod<T>
         {
-            T[] list;
+            public T[] list { get; set; }
 
             public T[] Add(T addThis)
             {
@@ -47,7 +46,7 @@
                 {
                     list[i] = temp[i];
                 }
-                list[temp.Length + 1] = addThis;
+                list[temp.Length] = addThis;
 
                 return list;
             }
@@ -70,20 +69,23 @@
          * Now add a SumAll() method to the generic class we made earlier. You will see that this leads to a compilation error. Try to add a type constraint to the class to fix this.
          * HINT: You add a type constraint with the "where T : " syntax
          */
-        //TODO: HOW TO TEST THIS LÅL
         public class MyVeryOwnListWithSumAll<T> where T : ISummable
         {
-            T[] list;
+            public T[] list { get; set; }
 
             public T[] Add(T addThis)
             {
+                if (list == null)
+                {
+                    return new T[] { addThis };
+                }
                 var temp = list;
                 list = new T[temp.Length + 1];
                 for (int i = 0; i < temp.Length; i++)
                 {
                     list[i] = temp[i];
                 }
-                list[temp.Length + 1] = addThis;
+                list[temp.Length] = addThis;
 
                 return list;
             }
