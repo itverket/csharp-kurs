@@ -17,7 +17,7 @@ namespace CSharpKurs
         */
         public List<string> FirstCharacterOfEachString(IEnumerable<string> listOfStrings)
         {
-            return listOfStrings.Select(x => x.Substring(0, 1)).ToList();
+            return new List<string>();
         }
 
 
@@ -28,7 +28,7 @@ namespace CSharpKurs
          */
         public List<string> FilterElementsStartingWithA(IEnumerable<string> listOfStrings)
         {
-            return listOfStrings.Where(x => x[0] == 'A').ToList();
+            return new List<string>();
         }
 
         /*
@@ -37,7 +37,7 @@ namespace CSharpKurs
         */
         public List<string> OrderByLengthOfStrings(IEnumerable<string> listOfStrings)
         {
-            return listOfStrings.OrderBy(x => x.Length).ToList();
+            return new List<string>();
         }
 
         /*
@@ -47,7 +47,7 @@ namespace CSharpKurs
         */
         public double GetAverageOfAllEvenNumbers(IEnumerable<int> listOfInt)
         {
-            return listOfInt.Where(i => i%2 == 0).Average();
+            return new double();
         }
 
     }

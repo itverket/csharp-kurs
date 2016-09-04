@@ -29,13 +29,11 @@ namespace CSharpKurs
     {
         int length = 2;
 
-        public override int Size => length;
     }
 
     public class Circle : Shape
     {
         int radius = 5;
-        public override int Size => radius*2;
     }
 
 

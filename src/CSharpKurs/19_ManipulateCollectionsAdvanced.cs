@@ -16,9 +16,7 @@ namespace CSharpKurs
          */
         public List<Person> PersonsOlderThan20SortedByHeight(IEnumerable<Person> listOfPersons)
         {
-            return listOfPersons
-                .Where(p => p.Age > 25)
-                .OrderBy(p => p.Height).ToList();
+            return new List<Person>();
         }
 
         /*
@@ -26,7 +24,7 @@ namespace CSharpKurs
          */
         public List<int> Add1TooAll(IEnumerable<int> listOfInts)
         {
-            return listOfInts.Select(i => i + 1).ToList();
+            return new List<int>();
         }
 
 
@@ -37,18 +35,8 @@ namespace CSharpKurs
 
         public List<Person> PersonsWithDogs(List<Person> persons, List<Dog> dogs)
         {
-            return persons
-                    .Where(p => dogs.Any(d => d.DogId == p.DogId))
-                    .Select(p =>
-                    {
-                        p.DogName = dogs.First(d => d.DogId == p.DogId).Name;
-                        return p;
-                    })
-                    .ToList();
+            return new List<Person>();
         }
-
-
-
     }
 
     public class Person

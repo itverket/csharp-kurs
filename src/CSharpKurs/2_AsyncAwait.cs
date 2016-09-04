@@ -26,15 +26,9 @@ namespace CSharpKurs
 
         public async Task TellTheKidsToDoTheirDuties()
         {
-            //(Original method)
-            //await John.CleanRoom();
-            //await Clair.TakeOutGarbage();
-
-            var task1 = John.CleanRoom();
-            var task2 = Clair.TakeOutGarbage();
-            await Task.WhenAll(task1, task2);
+            await John.CleanRoom();
+            await Clair.TakeOutGarbage();
         }
-
     }
 
 

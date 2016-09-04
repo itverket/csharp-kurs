@@ -15,10 +15,7 @@ namespace CSharpKurs
         */
         public string PlusOperatorConcatStrings()
         {
-            var hello = "Hello";
-            var world = "World";
-
-            return hello + " " + world;
+            return "";
         }
 
         /* 
@@ -26,10 +23,7 @@ namespace CSharpKurs
         */
         public string StringFormat()
         {
-            var hello = "Hello";
-            var world = "World";
-
-            return string.Format("{0} to you too {1}", hello, world);
+            return "";
         }
 
         /* 
@@ -38,10 +32,7 @@ namespace CSharpKurs
         */
         public string StringInterpolation()
         {
-            var hello = "Hello";
-            var world = "World";
-
-            return $"{hello} to you too {world}";
+            return "";
         }
 
         /* 
@@ -49,12 +40,7 @@ namespace CSharpKurs
         */
         public string CheckForNullOrEmpty(string input)
         {
-            if(string.IsNullOrEmpty(input))
-            {
-                return "Empty string";
-            }
-
-            return "Hello World";
+            return "";
         }
     }
 }

@@ -15,7 +15,7 @@ namespace CSharpKurs
          */
         public static int WordCount(this string str)
         {
-            return str.Split(' ').Length;
+            return 0; 
         }
 
 
@@ -29,7 +29,7 @@ namespace CSharpKurs
 
         public static int CountWordsOfMultipleStrings(List<string> listOfStrings)
         {
-            return listOfStrings.Sum(i => i.WordCount());
+            return 0;
         }
 
 
@@ -42,7 +42,7 @@ namespace CSharpKurs
          */
         public static List<int> AddToAllIntInList(this List<int> listOfInts, int additionValue)
         {
-            return listOfInts.Select(i => i + additionValue).ToList();
+            return new List<int>();
         } 
 
 
