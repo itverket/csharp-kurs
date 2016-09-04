@@ -15,6 +15,9 @@ namespace CSharpKurs
         */
         public string PlusOperatorConcatStrings()
         {
+            var hello = "Hello";
+            var world = "World";
+
             return "";
         }
 
@@ -23,6 +26,9 @@ namespace CSharpKurs
         */
         public string StringFormat()
         {
+            var hello = "Hello";
+            var world = "World";
+
             return "";
         }
 
@@ -32,6 +38,9 @@ namespace CSharpKurs
         */
         public string StringInterpolation()
         {
+            var hello = "Hello";
+            var world = "World";
+
             return "";
         }
 
