@@ -8,50 +8,39 @@
         */
 
         /* 
-         * First, create an interface called ISummable that has one method called Sum that takes no parameters and returns an int.
+         First, add a Sum() method to the ISummable interface. This should return an int.
          */
 
         public interface ISummable
         {
-            int Sum();
+            
         }
 
         /* 
-         * Now add a SumAll() method to the generic class we made earlier. You will see that this leads to a compilation error. Try to add a type constraint to the class to fix this.
+         * Now add a SumAll() method that returns an int to the generic class we made earlier. This method should return the total Sum of all the items in the list, by invoking the Sum() method on each item in the list and return the total sum.
+         * You will see that this leads to a compilation error. Try to add a type constraint to the class to fix this.
          * HINT: You add a type constraint with the "where T : " syntax
          */
 
         public class MyVeryOwnListWithSumAll<T> where T : ISummable
         {
-            public T[] list { get; set; }
+            public T[] List { get; set; }
 
             public T[] Add(T addThis)
             {
-                if (list == null)
+                if (List == null)
                 {
                     return new T[] {addThis};
                 }
-                var temp = list;
-                list = new T[temp.Length + 1];
+                var temp = List;
+                List = new T[temp.Length + 1];
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    list[i] = temp[i];
+                    List[i] = temp[i];
                 }
-                list[temp.Length] = addThis;
+                List[temp.Length] = addThis;
 
-                return list;
-            }
-
-            public int SumAll()
-            {
-                var sum = 0;
-
-                foreach (var item in list)
-                {
-                    sum += item.Sum();
-                }
-
-                return sum;
+                return List;
             }
         }
     }
