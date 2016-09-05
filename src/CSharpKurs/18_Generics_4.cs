@@ -13,7 +13,6 @@
 
         public interface ISummable
         {
-            int Sum();
         }
 
         /* 
@@ -22,7 +21,7 @@
          * HINT: You add a type constraint with the "where T : " syntax
          */
 
-        public class MyVeryOwnListWithSumAll<T> where T : ISummable
+        public class MyVeryOwnListWithSumAll<T>
         {
             public T[] List { get; set; }
 
@@ -41,18 +40,6 @@
                 List[temp.Length] = addThis;
 
                 return List;
-            }
-
-            public int SumAll()
-            {
-                var sum = 0;
-
-                foreach (var item in List)
-                {
-                    sum += item.Sum();
-                }
-
-                return sum;
             }
         }
     }

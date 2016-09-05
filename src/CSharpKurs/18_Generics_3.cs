@@ -10,19 +10,6 @@
         public class MyVeryOwnListWithGenericAddMethod<T>
         {
             public T[] List { get; set; }
-
-            public T[] Add(T addThis)
-            {
-                var temp = List;
-                List = new T[temp.Length + 1];
-                for (int i = 0; i < temp.Length; i++)
-                {
-                    List[i] = temp[i];
-                }
-                List[temp.Length] = addThis;
-
-                return List;
-            }
         }
     }
 }

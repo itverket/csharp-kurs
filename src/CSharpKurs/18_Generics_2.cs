@@ -8,7 +8,6 @@
          */
         public class MyVeryOwnListWithGenericArray<T>
         {
-            public T[] List { get; set; }
         }
     }
 }
