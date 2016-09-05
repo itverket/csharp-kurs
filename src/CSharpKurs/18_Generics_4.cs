@@ -13,7 +13,7 @@
 
         public interface ISummable
         {
-            
+            int Sum();
         }
 
         /* 
@@ -41,6 +41,18 @@
                 List[temp.Length] = addThis;
 
                 return List;
+            }
+
+            public int SumAll()
+            {
+                var sum = 0;
+
+                foreach (var item in List)
+                {
+                    sum += item.Sum();
+                }
+
+                return sum;
             }
         }
     }
