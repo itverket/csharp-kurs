@@ -15,7 +15,7 @@
          * The first task is to make the class MyVeryOwnList take a generic parameter
          */
 
-        public class MyVeryOwnListOfGenericType
+        public class MyVeryOwnListOfGenericType<T>
         {
         }
     }
