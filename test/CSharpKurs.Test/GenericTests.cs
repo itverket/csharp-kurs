@@ -11,8 +11,7 @@ namespace CSharpKurs.Tests
         private readonly FunWithGenerics _funWithGenerics = new FunWithGenerics();
         private readonly FunWithGenerics2 _funWithGenerics2 = new FunWithGenerics2();
         private readonly FunWithGenerics3 _funWithGenerics3 = new FunWithGenerics3();
-        //private readonly FunWithGenerics _funWithGenerics = new FunWithGenerics();
-        //private readonly FunWithGenerics _funWithGenerics = new FunWithGenerics();
+        private readonly FunWithGenerics4 _funWithGenerics4 = new FunWithGenerics4();
 
         [Test]
         public void MyVeryOwnListShouldTakeGenericParameter()
@@ -70,17 +69,24 @@ namespace CSharpKurs.Tests
         {
             var myVeryOwnList4 = new FunWithGenerics4.MyVeryOwnListWithSumAll<FunWithGenerics4.ISummable>();
             FunWithGenerics4.ISummable[] list = new FunWithGenerics4.ISummable[0];
-            myVeryOwnList4.list = list;
+            myVeryOwnList4.List = list;
 
             var test1 = new Summable(1);
             var test2 = new Summable(2);
             var test3 = new Summable(3);
 
-            myVeryOwnList4.Add(test1);
-            myVeryOwnList4.Add(test2);
-            myVeryOwnList4.Add(test3);
+            var types = _funWithGenerics4.GetType().GetNestedTypes(BindingFlags.Public);
+            Type constructed = types[1].MakeGenericType(myVeryOwnList4.GetType().GenericTypeArguments);
 
-            var value = myVeryOwnList4.SumAll();
+            var addMethod = constructed.GetMethod("Add");
+
+            addMethod.Invoke(myVeryOwnList4, new object[] { test1 });
+            addMethod.Invoke(myVeryOwnList4, new object[] { test2 });
+            addMethod.Invoke(myVeryOwnList4, new object[] { test3 });
+
+            var sumAllMethod = constructed.GetMethod("SumAll");
+
+            var value = sumAllMethod.Invoke(myVeryOwnList4, null);
 
             Assert.AreEqual(6, value);
         }
