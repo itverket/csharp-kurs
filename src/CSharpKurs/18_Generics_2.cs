@@ -3,8 +3,8 @@
     public class FunWithGenerics2
     {
         /* 
-         * Now add a public property that is an array of the generic type parameter called 'List' to the class. We will use this array
-         * to hold the elements of our list
+         * Now we want to add a property (remember, in C# a property is a public field with a getter and a setter).
+         * The property should be an ARRAY (like string[] is a string array) of the generic type.
          */
         public class MyVeryOwnListWithGenericArray<T>
         {

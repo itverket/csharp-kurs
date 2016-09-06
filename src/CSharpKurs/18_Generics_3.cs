@@ -3,7 +3,9 @@
     public class FunWithGenerics3
     {
         /* 
-       * Now add a method Add that takes a paramater of type T, adds it at the end of the array of T, and returns the new array.
+       * Now we want to add a method that will allow us to add a new element to our array. 
+       * To do this, create a new method to the class called 'Add'.
+       * The Add method should take a parameter of type T, add it to the end of the array, and return the new array.
        * HINT: You will need a temporary variable to hold your existing array.
        */
 
