@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 
-namespace CSharpKurs.Tests
+namespace CSharpKurs.TestMethods
 {
-    public class TestData
+    public class TestMethodData
     {
-        public static List<Person> TestPersons => new List<Person>
+        public static List<Person> TestMethodPersons => new List<Person>
         {
             new Person
             {
@@ -39,7 +39,7 @@ namespace CSharpKurs.Tests
 
         };
 
-        public static List<Dog> TestDogs => new List<Dog>
+        public static List<Dog> TestMethodDogs => new List<Dog>
         {
             new Dog
             {

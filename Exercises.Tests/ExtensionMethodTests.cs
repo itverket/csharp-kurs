@@ -1,24 +1,21 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Reflection;
-using NUnit.Framework.Internal;
-using NUnit.Framework;
 
-namespace CSharpKurs.Tests
+namespace CSharpKurs.TestMethods
 {
-    [TestFixture]
-    public class ExtensionMethodTests
+    [TestClass]
+    public class ExtensionMethodTestMethods
     {
 
-        [Test]
+        [TestMethod]
         public void Should_print_number_of_words()
         {
             if (typeof(ExtensionMethods).GetMethod("WordCount", new []{typeof(string)}) != null)
             {
                 var wordCountMethodInfo = typeof (ExtensionMethods).GetMethod("WordCount", new []{ typeof(string)} );
                 var count = wordCountMethodInfo.Invoke(null, new[] {"Anders Kofoed"});
-                Assert.That(count, Is.EqualTo(2));
-
+                Assert.AreEqual(2, count);
             }
             else
             {
@@ -26,17 +23,16 @@ namespace CSharpKurs.Tests
             }
         }
 
-        [Test]
+        [TestMethod]
         public void Should_add_one_to_all_ints_in_list()
         {
             if (typeof(ExtensionMethods).GetMethod("AddToAllIntInList", new []{typeof(List<int>), typeof(int)}) != null)
             {
                 var methodInfo =typeof(ExtensionMethods).GetMethod("AddToAllIntInList", new []{typeof(List<int>), typeof(int)});
                 var count = (List<int>) methodInfo.Invoke(null, new object[] { new List<int>{1,2,3}, 1});
-                Assert.That(count[0], Is.EqualTo(2));
-                Assert.That(count[1], Is.EqualTo(3));
-                Assert.That(count[2], Is.EqualTo(4));
-
+                Assert.AreEqual(2, count[0]);
+                Assert.AreEqual(3, count[1]);
+                Assert.AreEqual(4, count[2]);
             }
             else
             {
@@ -45,13 +41,12 @@ namespace CSharpKurs.Tests
         }
 
 
-        [Test]
+        [TestMethod]
         public void Should_count_words_of_all_strings_in_list()
         {
             var listOfStrings = new List<string> {"Keep It Simply Silly", "Sorry mama", "Anders"};
             var result = ExtensionMethods.CountWordsOfMultipleStrings(listOfStrings);
-            Assert.That(result, Is.EqualTo(7));
-
+            Assert.AreEqual(7, result);
         }
 
     }

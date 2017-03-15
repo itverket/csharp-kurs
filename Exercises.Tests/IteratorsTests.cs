@@ -1,21 +1,21 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CSharpKurs.Tests
+namespace CSharpKurs.TestMethods
 {
-    [TestFixture]
-    public class IteratorsTests
+    [TestClass]
+    public class IteratorsTestMethods
     {
         private Iterators _iterators;
 
-        [SetUp]
+        [TestInitialize]
         public void SetUp()
         {
             _iterators = new Iterators();
         }
 
-        [Test]
+        [TestMethod]
         public void ReturnNumbersFromZeroToNineEnumerator_should_return_numbers_0_to_9()
         {
             var iterator = _iterators.ReturnNumbersFromZeroToNineEnumerator();
@@ -27,7 +27,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual("0123456789", result);
         }
 
-        [Test]
+        [TestMethod]
         public void ReturnNumbersFromZeroToNineEnumerable_should_return_numbers_0_to_9()
         {
             var iterator = _iterators.ReturnNumbersFromZeroToNineEnumerable();
@@ -39,7 +39,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual("0123456789", result);
         }
 
-        [Test]
+        [TestMethod]
         public void ReturnAllElements_should_return_all_elements()
         {
             var result = _iterators.ReturnAllElements(new[] { "DO", "YOU" }.Cast<string>().GetEnumerator(), new[] { "EVEN", "C#" });
@@ -48,7 +48,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual("DO YOU EVEN C#", name.Trim());            
         }
 
-        [Test]
+        [TestMethod]
         public void DaysOfTheWeek_should_be_possible_to_iterate()
         {
             var days = new Iterators.DaysOfTheWeek();
@@ -56,7 +56,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual(7, days.Count());
         }
 
-        [Test]
+        [TestMethod]
         public void GetDaysUntilThursday_should_return_days_until_thursday()
         {
             var result = _iterators.GetDaysUntilThursday(new Iterators.DaysOfTheWeek());
@@ -64,7 +64,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual("SunMonTueWed", days);
         }
 
-        [Test]
+        [TestMethod]
         public void AddOneItem_should_add_one_item()
         {
             var result = _iterators.AddOneItem(new List<decimal> { 1m, 2m });

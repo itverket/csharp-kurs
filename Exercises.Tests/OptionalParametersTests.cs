@@ -1,13 +1,13 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Reflection;
 
-namespace CSharpKurs.Tests
+namespace CSharpKurs.TestMethods
 {
-    [TestFixture]
-    public class OptionalParametersTests
+    [TestClass]
+    public class OptionalParametersTestMethods
     {
-        [Test]
+        [TestMethod]
         public void Ctor_should_have_optional_parameter()
         {
             var type = typeof(OptionalParameters);
@@ -19,7 +19,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual(0, field);
         }
 
-        [Test]
+        [TestMethod]
         public void OptionalStringParameter_should_work_with_one_parameter()
         {
             var optionalParameters = new OptionalParameters(1337);
@@ -28,7 +28,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual("Hello Ole Olsen", result);
         }
 
-        [Test]
+        [TestMethod]
         public void CanFirstParameterBeOptional_should_work_with_one_parameter()
         {
             var optionalParameters = new OptionalParameters(1337);
@@ -37,7 +37,7 @@ namespace CSharpKurs.Tests
             Assert.AreEqual("Hello Per Olsen", result);
         }
 
-        [Test]
+        [TestMethod]
         public void CanFirstParameterBeOptional_should_work_with_no_parameters()
         {
             var optionalParameters = new OptionalParameters(1337);

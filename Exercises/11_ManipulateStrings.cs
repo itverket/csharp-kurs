@@ -8,7 +8,7 @@ namespace CSharpKurs
      /* 
         We will start with some simple tasks that show different ways to work with strings in C#
      */
-    public class ManipulateStrings
+    public class ManipulaTestMethodrings
     {
         /* 
             In C# the '+' operator can be used to concat two strings. Make the following method return the string "Hello World".

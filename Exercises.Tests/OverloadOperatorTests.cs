@@ -1,13 +1,13 @@
-﻿using NUnit.Compatibility;
-using NUnit.Framework;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Reflection;
 
-namespace CSharpKurs.Tests
+namespace CSharpKurs.TestMethods
 {
-    [TestFixture]
-    public class OverloadOperatorTests
+    [TestClass]
+    public class OverloadOperatorTestMethods
     {
 
-        [Test]
+        [TestMethod]
         public void Should_add_the_length_of_the_planks()
         {
             var plank1 = new Plank(1);
@@ -16,7 +16,7 @@ namespace CSharpKurs.Tests
             if (typeof(Plank).GetMethod("op_Addition") != null)
             {
                 var resultPlank = typeof(Plank).GetMethod("op_Addition").Invoke(null, new Plank[] { plank1, plank2 });
-                Assert.That(((Plank)resultPlank).Length, Is.EqualTo(6));
+                Assert.AreEqual(6, ((Plank)resultPlank).Length);
             }
             else
             {

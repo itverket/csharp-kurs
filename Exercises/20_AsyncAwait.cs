@@ -10,6 +10,7 @@ namespace CSharpKurs
     {
         private readonly John John = new John();
         private readonly Clair Clair = new Clair();
+        private readonly Mother Mother = new Mother();
 
         public int TotalStarsOnRefridgitrator => John.StarsOnRefridgirator + Clair.StarsOnRefridgirator;
 
@@ -26,30 +27,39 @@ namespace CSharpKurs
 
         public async Task TellTheKidsToDoTheirDuties()
         {
-            await John.CleanRoom();
-            await Clair.TakeOutGarbage();
+            var johnFinished =  await John.CleanRoom();
+            var clairFinished = await Clair.TakeOutGarbage();
+
+            Mother.PutUpStars(johnFinished, clairFinished);
         }
     }
 
+    public class Mother
+    {
+        public void PutUpStars(John john, Clair clair)
+        {
+            john.StarsOnRefridgirator++;
+            clair.StarsOnRefridgirator++;
+        }
+    }
 
     public class John
     {
         public int StarsOnRefridgirator { get; set; } = 0;
 
-        public async Task CleanRoom()
+        public async Task<John> CleanRoom()
         {
             await Task.Delay(TimeSpan.FromSeconds(5));
-            StarsOnRefridgirator++;
-
+            return this;
         }
     }
     public class Clair
     {
         public int StarsOnRefridgirator { get; set; } = 0;
-        public async Task TakeOutGarbage()
+        public async Task<Clair> TakeOutGarbage()
         {
             await Task.Delay(TimeSpan.FromSeconds(5));
-            StarsOnRefridgirator++;
+            return this;
         }
     }
 }
