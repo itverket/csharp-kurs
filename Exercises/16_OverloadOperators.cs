@@ -12,7 +12,9 @@
 
         /*
         Implement an addition operator +, which adds to planks. Two planks are
-        added by returning a new plank with Length equal to the sum of the two previouse.
+        added by returning a new plank with Length equal to the sum of the two previous.
+
+        Hint: public static Plank operator+ (Plank plank, Plank otherPlank)
          */
 
 

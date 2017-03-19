@@ -37,15 +37,18 @@
             {
                 if (List == null)
                 {
-                    return new T[] {addThis};
+                    List = new T[] {addThis};
                 }
-                var temp = List;
-                List = new T[temp.Length + 1];
-                for (int i = 0; i < temp.Length; i++)
+                else
                 {
-                    List[i] = temp[i];
+                    var temp = List;
+                    List = new T[temp.Length + 1];
+                    for (int i = 0; i < temp.Length; i++)
+                    {
+                        List[i] = temp[i];
+                    }
+                    List[temp.Length] = addThis;
                 }
-                List[temp.Length] = addThis;
 
                 return List;
             }
